@@ -24,6 +24,13 @@
             "description": "Name of the user",
             "type": "integer",
             "format": "int32"
+          },
+          {
+            "name": "LastName",
+            "in": "query",
+            "required": true,
+            "description": "Name of the user",
+            "type": "string"
           }
         ],
         "responses": {
@@ -71,19 +78,27 @@
         }
       }
     },
-    "/group/{tag}": {
+    "/group/{id}": {
       "get": {
         "tags": [
           "Group Collection Endpoint"
         ],
-        "summary": "Fetches a user by name",
+        "summary": "Fetches a group by name",
         "parameters": [
           {
-            "name": "tag",
+            "name": "id",
             "in": "path",
             "required": true,
-            "description": "Name of the user",
-            "type": "boolean"
+            "description": "Id of the group",
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "display_name",
+            "in": "query",
+            "required": true,
+            "description": "Name of the group",
+            "type": "string"
           }
         ],
         "responses": {
@@ -110,22 +125,23 @@
         "tags": [
           "Group Collection Endpoint"
         ],
-        "summary": "Deletes a user tag by ID",
+        "summary": "Deletes a Group by ID",
         "parameters": [
           {
-            "name": "tag",
+            "name": "id",
             "in": "path",
             "required": true,
-            "description": "ID of the user to delete",
-            "type": "boolean"
+            "description": "ID of the Group to delete",
+            "type": "integer",
+            "format": "int64"
           }
         ],
         "responses": {
           "200": {
-            "description": "User deleted successfully"
+            "description": "Group deleted successfully"
           },
           "404": {
-            "description": "User not found"
+            "description": "Group not found"
           }
         }
       }
