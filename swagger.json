@@ -6,15 +6,14 @@
   },
   "tags": [
     {
-      "name": "Collection Endpoint",
-      "description": "Endpoints for testing the API"
+      "name": "Group Collection Endpoint"
     }
   ],
   "paths": {
     "/user/{id}": {
       "get": {
         "tags": [
-          "Collection Endpoint"
+          "User Collection Endpoint"
         ],
         "summary": "Fetches a user by name",
         "parameters": [
@@ -49,7 +48,7 @@
       },
       "delete": {
         "tags": [
-          "Collection Endpoint"
+          "User Collection Endpoint"
         ],
         "summary": "Deletes a user tag by ID",
         "parameters": [
@@ -75,7 +74,7 @@
     "/group/{tag}": {
       "get": {
         "tags": [
-          "Collection Endpoint"
+          "Group Collection Endpoint"
         ],
         "summary": "Fetches a user by name",
         "parameters": [
@@ -109,7 +108,7 @@
       },
       "delete": {
         "tags": [
-          "Collection Endpoint"
+          "Group Collection Endpoint"
         ],
         "summary": "Deletes a user tag by ID",
         "parameters": [
