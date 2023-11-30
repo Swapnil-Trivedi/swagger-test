@@ -6,28 +6,25 @@
   },
   "tags": [
     {
-      "name": "Users",
-      "description": "Endpoints for testing the API"
-    },
-    {
-      "name": "Profile",
+      "name": "Collection Endpoint",
       "description": "Endpoints for testing the API"
     }
   ],
   "paths": {
-    "/user/{user_name}": {
+    "/user/{id}": {
       "get": {
         "tags": [
-          "Users"
+          "Collection Endpoint"
         ],
         "summary": "Fetches a user by name",
         "parameters": [
           {
-            "name": "user_name",
+            "name": "id",
             "in": "path",
             "required": true,
             "description": "Name of the user",
-            "type": "string"
+            "type": "integer",
+            "format": "int32"
           }
         ],
         "responses": {
@@ -49,51 +46,10 @@
             "description": "User not found"
           }
         }
-      }
-    },
-    "/user/{email}/data": {
-      "get": {
-        "tags": [
-          "Users"
-        ],
-        "summary": "Fetches a user's data by email",
-        "parameters": [
-          {
-            "name": "email",
-            "in": "path",
-            "required": true,
-            "description": "Email of the user",
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful operation",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "type": "string"
-                },
-                "email": {
-                  "type": "string"
-                },
-                "data": {
-                  "type": "object"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "User not found"
-          }
-        }
-      }
-    },
-    "/user/tag/{id}": {
+      },
       "delete": {
         "tags": [
-          "Users"
+          "Collection Endpoint"
         ],
         "summary": "Deletes a user tag by ID",
         "parameters": [
@@ -116,25 +72,18 @@
         }
       }
     },
-    "/profile/{user_name}/{tag}": {
+    "/group/{tag}": {
       "get": {
         "tags": [
-          "Profile"
+          "Collection Endpoint"
         ],
-        "summary": "Fetches a user's profile by name and tag",
+        "summary": "Fetches a user by name",
         "parameters": [
-          {
-            "name": "user_name",
-            "in": "path",
-            "required": true,
-            "description": "Name of the user",
-            "type": "string"
-          },
           {
             "name": "tag",
             "in": "path",
             "required": true,
-            "description": "Tag of the profile",
+            "description": "Name of the user",
             "type": "boolean"
           }
         ],
@@ -147,49 +96,37 @@
                 "name": {
                   "type": "string"
                 },
-                "tag": {
-                  "type": "boolean"
-                },
-                "profileData": {
-                  "type": "object"
+                "email": {
+                  "type": "string"
                 }
               }
             }
           },
           "404": {
-            "description": "Profile not found"
+            "description": "User not found"
           }
         }
-      }
-    },
-    "/profile/{name}/update/{address}": {
+      },
       "delete": {
         "tags": [
-          "Profile"
+          "Collection Endpoint"
         ],
-        "summary": "Deletes a user's profile by name and address",
+        "summary": "Deletes a user tag by ID",
         "parameters": [
           {
-            "name": "name",
+            "name": "tag",
             "in": "path",
             "required": true,
-            "description": "Name of the user",
-            "type": "string"
-          },
-          {
-            "name": "address",
-            "in": "path",
-            "required": true,
-            "description": "Address of the profile",
-            "type": "string"
+            "description": "ID of the user to delete",
+            "type": "boolean"
           }
         ],
         "responses": {
           "200": {
-            "description": "Profile deleted successfully"
+            "description": "User deleted successfully"
           },
           "404": {
-            "description": "Profile not found"
+            "description": "User not found"
           }
         }
       }
