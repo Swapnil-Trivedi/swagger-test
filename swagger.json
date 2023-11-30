@@ -15,7 +15,7 @@
     }
   ],
   "paths": {
-    "/user/{name}": {
+    "/user/{user_name}": {
       "get": {
         "tags": [
           "Users"
@@ -23,7 +23,7 @@
         "summary": "Fetches a user by name",
         "parameters": [
           {
-            "name": "name",
+            "name": "user_name",
             "in": "path",
             "required": true,
             "description": "Name of the user",
@@ -116,7 +116,7 @@
         }
       }
     },
-    "/profile/{name}/{tag}": {
+    "/profile/{user_name}/{tag}": {
       "get": {
         "tags": [
           "Profile"
@@ -124,7 +124,7 @@
         "summary": "Fetches a user's profile by name and tag",
         "parameters": [
           {
-            "name": "name",
+            "name": "user_name",
             "in": "path",
             "required": true,
             "description": "Name of the user",
