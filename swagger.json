@@ -78,7 +78,7 @@
         }
       }
     },
-    "/group/{id}": {
+    "/group": {
       "get": {
         "tags": [
           "Group Collection Endpoint"
@@ -86,17 +86,9 @@
         "summary": "Fetches a group by name",
         "parameters": [
           {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "description": "Id of the group",
-            "type": "integer",
-            "format": "int64"
-          },
-          {
             "name": "display_name",
             "in": "query",
-            "required": true,
+            "required": false,
             "description": "Name of the group",
             "type": "string"
           }
@@ -120,7 +112,9 @@
             "description": "User not found"
           }
         }
-      },
+      }
+    },
+    "/group/{id}": {
       "delete": {
         "tags": [
           "Group Collection Endpoint"
